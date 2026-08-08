@@ -229,7 +229,7 @@
 
 1. 获取 `date +%Y%m%dT%H%M%S` 与 `date "+%Y-%m-%d %a %H:%M"`。
 2. 从目标生成 4–20 个有意义字符的文件名片段；空白和 `/\\:*?\"<>|` 改成 `-`，去掉重复连字符。
-3. 写入 `~/Documents/notes/{时间戳}--本质-{目标片段}__is.md`。
+3. 写入 `/Users/renkuan/Workspace/notes/obsidian/RK'Ideaverse_Sync/+/{时间戳}--本质-{目标片段}__is.md`。
 4. 复制技能根目录的 `Template.md`，替换其中所有花括号占位符。模板的 `#+schema: ljg-is-v2` 与七个一级标题是新版合同；不得删除「结构迁移」或自行另造结构。
 
 若没有限定条件，写 `完整：{核心}`，不要保留空括号。

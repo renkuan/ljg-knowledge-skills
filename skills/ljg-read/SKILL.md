@@ -221,7 +221,7 @@ _读者也可以在任何位置说"等一下"_，Agent 立即停下进入深入�
 
 1. 运行 `date +%Y%m%dT%H%M%S` 获取时间戳
 2. 运行 `date "+%Y-%m-%d %a %H:%M"` 获取可读时间
-3. 写入 `D:/WorkFiles/obisdian_repo/RK'Ideaverse_Sync/+/{时间戳}--伴读-{文本关键词}__reading.md`
+3. 写入 `/Users/renkuan/Workspace/notes/obsidian/RK'Ideaverse_Sync/+/{时间戳}--伴读-{文本关键词}__reading.md`
 
 Org 文件结构：
 

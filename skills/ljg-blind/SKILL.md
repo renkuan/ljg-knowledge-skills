@@ -130,7 +130,7 @@ bun "${HOME}/.agents/skills/ljg-blind/Tools/WeReadWebUrl.ts" "<bookId>"
 
 获取时间戳：`date +%Y%m%dT%H%M%S` 和 `date "+%Y-%m-%d %a %H:%M"`（时间用当前，不是 target）。
 
-写入 `D:/WorkFiles/obisdian_repo/RK'Ideaverse_Sync/+/{时间戳}--盲区-{主题}__blind.md`。markdown 格式。
+写入 `/Users/renkuan/Workspace/notes/obsidian/RK'Ideaverse_Sync/+/{时间戳}--盲区-{主题}__blind.md`。markdown 格式。
 
 正文模板：
 

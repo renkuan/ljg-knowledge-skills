@@ -91,7 +91,7 @@ User: 「预测是一种选择压，它逼出对结构的理解。帮我完整�
 - Markdown 加粗使用双星号，标题从 `#` 开始且不跳级。
 - 图表只用纯 ASCII 字符。
 - 取得两个时间值：`date +%Y%m%dT%H%M%S` 与 `date "+%Y-%m-%d %a %H:%M"`。
-- 文件名：`~/Documents/notes/{时间戳}==z--{标题关键词}__write.md`。
+- 文件名：`/Users/renkuan/Workspace/notes/obsidian/RK'Ideaverse_Sync/+/{时间戳}==z--{标题关键词}__write.md`。
 - 文件头：
 
 ```yaml

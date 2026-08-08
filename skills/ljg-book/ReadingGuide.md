@@ -186,7 +186,7 @@ ASCII 图放进：
 
 保存到：
 
-`~/Documents/notes/{时间戳}--拆书-{书名}__book.md`
+`/Users/renkuan/Workspace/notes/obsidian/RK'Ideaverse_Sync/+/{时间戳}--拆书-{书名}__book.md`
 
 时间戳：
 

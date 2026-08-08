@@ -17,13 +17,13 @@ curl -s -X POST http://localhost:31337/notify \
 
 按输入类型走：
 
-| 输入 | 工具 | 注意 |
-|------|------|------|
-| URL（普通网页） | WebFetch | 需要登录的页面用 markdown-proxy |
-| arxiv 链接 | WebFetch（HTML 版） | 拿 abstract + 方法 + 实验段 |
-| PDF / 本地文件 | Read | 大 PDF 用 pages 参数分段读 |
-| 直接文本 | 跳过 | 直接进入 Step 2 |
-| 论文/书名 | WebSearch | 拿到 URL 再走 WebFetch |
+| 输入            | 工具                | 注意                            |
+| --------------- | ------------------- | ------------------------------- |
+| URL（普通网页） | WebFetch            | 需要登录的页面用 markdown-proxy |
+| arxiv 链接      | WebFetch（HTML 版） | 拿 abstract + 方法 + 实验段     |
+| PDF / 本地文件  | Read                | 大 PDF 用 pages 参数分段读      |
+| 直接文本        | 跳过                | 直接进入 Step 2                 |
+| 论文/书名       | WebSearch           | 拿到 URL 再走 WebFetch          |
 
 确保拿到：核心论点 / 论证链 / 关键例子 / 边界讨论。
 
@@ -50,9 +50,9 @@ curl -s -X POST http://localhost:31337/notify \
 
 Q 类型四类（动 / 对 / 因 / 界）和模式见 `../References/QuestionDesign.md`。一篇好 Q 链至少混合三类。
 
-*排序规则*：按论证依赖关系，不按章节顺序。原文先写背景再写方法是叙事需要，但 Q 链应该按「先问根问题，再问解法，再问代价」走。
+_排序规则_：按论证依赖关系，不按章节顺序。原文先写背景再写方法是叙事需要，但 Q 链应该按「先问根问题，再问解法，再问代价」走。
 
-*数量*：5-10 个 Q。少则不够覆盖，多则读者疲劳。
+_数量_：5-10 个 Q。少则不够覆盖，多则读者疲劳。
 
 ## Step 4: 写 A
 
@@ -145,12 +145,12 @@ denote schema 文件名：`{YYYYMMDDTHHMMSS}--qa-{主题}__qa.md`
 ## 文件结构
 
 ```yaml
-title:      {一句精炼的核心观点——10-25 字}
-subtitle:   {原文标题}
-date:       [{YYYY-MM-DD Day HH:MM}]
-tags:   :qa:
-identifier: {YYYYMMDDTHHMMSS}
-source:     {URL 或来源}
+categories:
+  - "[[AI生成]]"
+source:
+  - "[[书名/论文名/文章名等]]"
+created: {{date}}
+tags:
 
 * 引子
 

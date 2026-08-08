@@ -1,12 +1,10 @@
 ---
-title: {一句中文判断，写出读者能带走什么}
-subtitle: {论文原始标题；必要时先加一句中文解释}
-date: [{YYYY-MM-DD Day HH:MM}]
-tags: paper
-identifier: {YYYYMMDDTHHMMSS}
-source: {唯一原始 URL，只写裸 URL，不加描述}
-authors: {作者列表}
-venue: {发表场所/年份}
+categories:
+  - "[[AI生成]]"
+source:
+  - "[[书名/论文名/文章名等]]"
+created: { { date } }
+tags:
 ---
 
 # 速读

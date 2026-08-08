@@ -32,6 +32,7 @@ MD_SAVE_DIR="<用户告知的路径>"   # 例：~/Documents/ObsidianVault/notes/
 ```
 
 要求：
+
 - 路径必须以 `/` 结尾（Windows 用户改成正斜杠：`D:/xxx/yyy/`）
 - 用户不给就停
 
@@ -59,13 +60,13 @@ bash $SKILLS_DIR/fix-ljg-org-to-md/init.sh "$MD_SAVE_DIR" "$AUTHOR_NAME" "$LOGO_
 
 脚本完成的**确定性替换**：
 
-| # | 内容 | 命中范围 |
-|---|------|---------|
-| 1 | `~/Documents/notes/` 和 `D:/WorkFiles/obisdian_repo/RK'Ideaverse_Sync/+/` 等旧保存目录 → `$MD_SAVE_DIR` | 所有 `.md` / `.html` |
-| 2 | `李继刚` → `$AUTHOR_NAME` | HTML 模板 `>李继刚<`；MD 里 `logo + 李继刚` / `署名：印 李继刚` / 单独李继刚 |
-| 3 | `capture.js` 里 `logoUrl` 行 | `logoUrl = '$LOGO_PATH'` |
-| 4 | `__xxx.org` → `__xxx.md` | denote 文件名扩展 |
-| 5 | `org 格式` / `以 org 输出` / `输出 org` | 输出格式声明 |
+| #   | 内容                                                                                                    | 命中范围                                                                     |
+| --- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| 1   | `~/Documents/notes/` 和 `D:/WorkFiles/obisdian_repo/RK'Ideaverse_Sync/+/` 等旧保存目录 → `$MD_SAVE_DIR` | 所有 `.md` / `.html`                                                         |
+| 2   | `李继刚` → `$AUTHOR_NAME`                                                                               | HTML 模板 `>李继刚<`；MD 里 `logo + 李继刚` / `署名：印 李继刚` / 单独李继刚 |
+| 3   | `capture.js` 里 `logoUrl` 行                                                                            | `logoUrl = '$LOGO_PATH'`                                                     |
+| 4   | `__xxx.org` → `__xxx.md`                                                                                | denote 文件名扩展                                                            |
+| 5   | `org 格式` / `以 org 输出` / `输出 org`                                                                 | 输出格式声明                                                                 |
 
 脚本内置**跳过清单**：`.bak-v*`、`fix-ljg-org-to-md/` 自身、`ljg-roundtable/references/original-prompt.md`、`ljg-push/Tools/`、`package-lock.json`、`.git/`。
 
@@ -76,15 +77,19 @@ bash $SKILLS_DIR/fix-ljg-org-to-md/init.sh "$MD_SAVE_DIR" "$AUTHOR_NAME" "$LOGO_
 `init.sh` 输出结尾会打印四类需要人工判断的残留：
 
 ### [a] `~/Documents/notes/` 或旧 Windows 保存目录残留
+
 脚本已内置替换 `~/Documents/notes/` 和 `D:/WorkFiles/obisdian_repo/RK'Ideaverse_Sync/+/` 两种旧目录。一般不会有残留——若有，逐条判断是否是特殊上下文（例如注释里的历史路径），或又出现了另一种新的旧目录写法（需手工替换并考虑加进 `OLD_SAVE_DIRS`）。
 
 ### [b] `李继刚` 残留
+
 `AUTHOR_NAME` 空时脚本会兜底清空。仅当有奇怪上下文（如未预料的 markdown 语法）需 LLM 修补。
 
 ### [c] `#+title:` / `#+date:` / `#+filetags:` 等 org 头
+
 逐行 `sed` 会留下散乱的裸字段，必须整体重构为 YAML frontmatter：
 
 原始：
+
 ```
 #+title:      论文核心思想
 #+date:       {date}
@@ -92,18 +97,24 @@ bash $SKILLS_DIR/fix-ljg-org-to-md/init.sh "$MD_SAVE_DIR" "$AUTHOR_NAME" "$LOGO_
 ```
 
 改为：
+
 ```
 ---
-title: 论文核心思想
+categories:
+  - "[[AI生成]]"
+source:
+  - "[[书名/论文名/文章名等]]"
 created: {{date}}
-tags: [paper]
+tags:
 ---
 ```
 
 用 Read + Edit 逐个处理脚本报出的文件。
 
 ### [d] 独立 `.org` 文件
+
 若脚本报出实体 `.org` 文件（非 `.bak`），参考 `skills/ljg-push/Tools/Push.sh` 里的 `orgfile_to_md` 函数：
+
 - 头块 → YAML frontmatter（`filetags` → `tags`）
 - `*` 标题 → `#` 标题（层级保留）
 - `#+ATTR_*` 删除
@@ -132,11 +143,13 @@ Step 3 若无改动，跳过 commit。
 ## Step 6 — 同步到全局
 
 **macOS / Linux**：
+
 ```bash
 rsync -av --delete $SKILLS_DIR/ $GLOBAL_SKILLS/
 ```
 
 **Windows (PowerShell 或 cmd)**：
+
 ```
 robocopy "<repo>\skills" "<GLOBAL_SKILLS>" /MIR
 ```
@@ -167,7 +180,7 @@ fix-ljg-org-to-md 初始化完成
 
 - **`MD_SAVE_DIR` 必须以 `/` 结尾**——`init.sh` 会硬校验
 - **Windows 路径用正斜杠**——`D:/xxx/yyy/`，反斜杠会跟 sed 转义打架
-- **`AUTHOR_NAME` 空值兜底顺序**——脚本先清 `logo + 李继刚` / `署名：印 李继刚`（防残留 ` + ` 和空格），再清单独 `李继刚`；顺序不能颠倒
+- **`AUTHOR_NAME` 空值兜底顺序**——脚本先清 `logo + 李继刚` / `署名：印 李继刚`（防残留 `+` 和空格），再清单独 `李继刚`；顺序不能颠倒
 - **HTML span 内文本清空后是 `<span></span>`**——若用户嫌残留 span 丑，再手工删 `<span>` 行
 - **`init.sh` 幂等**——重跑不会累积破坏，可安全再跑
 - **`.bak-v*` 备份永远不动**

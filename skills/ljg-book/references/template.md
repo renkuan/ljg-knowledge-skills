@@ -1,9 +1,10 @@
 ---
-title: 拆书：《{书名}》
-subtitle: {作者} | {一句话 f}
-date: [{YYYY-MM-DD Day HH:MM}]
-tags: book {领域}
-identifier: {YYYYMMDDTHHMMSS}
+categories:
+  - "[[AI生成]]"
+source:
+  - "[[书名/论文名/文章名等]]"
+created: { { date } }
+tags:
 ---
 
 - **x**：{作者在讨论什么问题}

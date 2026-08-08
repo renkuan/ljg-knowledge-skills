@@ -41,11 +41,12 @@ Assistant: [对"熵"进行八维解剖，生成 markdown 报告]
 
 1. **公式**：`概念 = ...`
 2. **一句话**：用最简单的话说出最深的理解
-3. **结构图**：纯 ASCII 画出概念的骨架（只用 +-|/\<>*=_.,:;!'" 等基本符号，不用 Unicode 绘图字符）
+3. **结构图**：纯 ASCII 画出概念的骨架（只用 +-|/\<>\*=\_.,:;!'" 等基本符号，不用 Unicode 绘图字符）
 
 ### 5. 写入
 
 **格式规则（零例外）：**
+
 - 输出必须是纯 markdown 语法，禁止任何 markdown 语法
 - 加粗用 `*bold*`（markdown），不用 `**bold**`（markdown）
 - 分隔线用空行或 org 标题层级区分，不用 `---`（markdown 分隔符）
@@ -55,9 +56,12 @@ Assistant: [对"熵"进行八维解剖，生成 markdown 报告]
 整合为 markdown，结构：
 
 ```yaml
-title: 概念解剖：{概念名}
-tags: :concept:
-date: [YYYY-MM-DD]
+categories:
+  - "[[AI生成]]"
+source:
+  - "[[书名/论文名/文章名等]]"
+created: {{date}}
+tags:
 
 * 定锚
 * 八刀
@@ -74,6 +78,7 @@ date: [YYYY-MM-DD]
 ```
 
 写入文件：
+
 1. 运行 `date +%Y%m%dT%H%M%S` 获取时间戳。
 2. 写入 `D:/WorkFiles/obisdian_repo/RK'Ideaverse_Sync/+/{timestamp}--概念解剖-{概念名}__concept.md`。
 3. 报告路径，完成。

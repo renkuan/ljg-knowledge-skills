@@ -130,14 +130,17 @@ bun "${HOME}/.agents/skills/ljg-blind/Tools/WeReadWebUrl.ts" "<bookId>"
 
 获取时间戳：`date +%Y%m%dT%H%M%S` 和 `date "+%Y-%m-%d %a %H:%M"`（时间用当前，不是 target）。
 
-写入 `D:/WorkFiles/obisdian_repo/RK'Ideaverse_Sync/+/{时间戳}--盲区-{主题}__blind.md`。markdown 格式，禁止 markdown 语法。
+写入 `D:/WorkFiles/obisdian_repo/RK'Ideaverse_Sync/+/{时间戳}--盲区-{主题}__blind.md`。markdown 格式。
 
 正文模板：
 
 ```yaml
-title: 盲区扫描 · {一句话点出这个盲区}
-date: [YYYY-MM-DD Weekday HH:MM]
-tags: :blind:weread:topology:
+categories:
+  - "[[AI生成]]"
+source:
+  - "[[书名/论文名/文章名等]]"
+created: {{date}}
+tags:
 
 * 昨天你在想什么
 <1-2 段。当天对话的思维地形——哪几件事、绕着哪个核心在转。给证据：哪几句话看出来的。不流水账，抓主线。>

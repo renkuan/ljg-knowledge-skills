@@ -43,8 +43,8 @@ user_invocable: true
 
 ## Workflow Routing
 
-| Workflow | Trigger | File |
-|---|---|---|
+| Workflow          | Trigger                            | File                         |
+| ----------------- | ---------------------------------- | ---------------------------- |
 | **FindStructure** | 从信息中找母题、结构关系与风洞实验 | `Workflows/FindStructure.md` |
 
 ## Gotchas
@@ -81,10 +81,12 @@ user_invocable: true
 文件必须是 markdown，禁止 Markdown。最小结构：
 
 ```yaml
-title: 结构：{主题}
-date: [{可读时间}]
-identifier: {时间戳}
-tags: :structure:
+categories:
+  - "[[AI生成]]"
+source:
+  - "[[书名/论文名/文章名等]]"
+created: {{date}}
+tags:
 
 * 输入
 * 母题

@@ -11,9 +11,9 @@ version: "7.1.0"
 
 ## Workflow Routing
 
-| Workflow | Trigger | File |
-|---|---|---|
-| *WriteEssay* | 写文章、优化思想内容、展开或重写观点 | `Workflows/WriteEssay.md` |
+| Workflow     | Trigger                              | File                      |
+| ------------ | ------------------------------------ | ------------------------- |
+| _WriteEssay_ | 写文章、优化思想内容、展开或重写观点 | `Workflows/WriteEssay.md` |
 
 执行时完整读取工作流。概念解码、关系建模、案例映射与迁移验收在内部完成；成文仍是一篇自然推进的文章，不展示脚手架。
 
@@ -66,7 +66,7 @@ version: "7.1.0"
 
 ## Examples
 
-*Example 1：把抽象观点写成文章*
+_Example 1：把抽象观点写成文章_
 
 ```text
 User: 「为什么越聪明的人越容易困在自己的解释里？写一篇。」
@@ -76,7 +76,7 @@ User: 「为什么越聪明的人越容易困在自己的解释里？写一篇�
 -> 写成自然推进的文章，不输出分析表
 ```
 
-*Example 2：优化一段思想*
+_Example 2：优化一段思想_
 
 ```text
 User: 「预测是一种选择压，它逼出对结构的理解。帮我完整优化。」
@@ -95,11 +95,12 @@ User: 「预测是一种选择压，它逼出对结构的理解。帮我完整�
 - 文件头：
 
 ```yaml
-title:      {标题}
-date:       [{YYYY-MM-DD Day HH:MM}]
-tags:   :write:
-identifier: {YYYYMMDDTHHMMSS}
-author:     李继刚
+categories:
+  - "[[AI生成]]"
+source:
+  - "[[书名/论文名/文章名等]]"
+created: { { date } }
+tags:
 ```
 
 - 初稿完成后合上它，用中文读者的眼睛重写一遍；两稿逐句择优，只保存最终稿。

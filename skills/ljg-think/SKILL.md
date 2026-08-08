@@ -66,5 +66,15 @@ user_invocable: true
 
 1. 获取时间戳：`date +%Y%m%dT%H%M%S` 和 `date "+%Y-%m-%d %a %H:%M"`
 2. 写入 `/Users/renkuan/Workspace/notes/obsidian/RK'Ideaverse_Sync/+/{时间戳}--追本-{主题}__think.md`
-3. markdown 格式
+3. markdown 格式- 文件头：
+
+```yaml
+categories:
+  - "[[AI生成]]"
+source:
+  - "[[书名/论文名/文章名等]]"
+created: { { date } }
+tags:
+```
+
 4. 报告文件路径给用户
